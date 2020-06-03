@@ -3,3 +3,72 @@
 body {
     font-family: "Nunito", "Open Sans", Arial, Helvetica, sans-serif;
 }
+
+body {
+  margin: 0;
+}
+
+header {
+  padding: 40px;
+  text-align: left;
+  background: darkred;
+  color: white;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#home {
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+#logo {
+  margin-left: 40px;
+}
+
+#wagen {
+  height: 40px;
+  width: 40px;
+  margin-left: 80px;
+}
+
+#zoeken {
+  margin-left: 600px;
+}
+
+#outline {
+  outline-style: solid;
+}
+
+.images {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-gap: 100px;
+  justify-content: center;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.grid1 {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+
+.grid2 {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.grid3 {
+  grid-column: 3 / 4;
+  grid-row: 1;
+}
+
+.grid4 {
+  grid-column: 4 ;
+  grid-row: 1 / 2;
+}
