@@ -15,7 +15,7 @@ function dbConnect() {
 	$config = get_config('DB');
 
 	try {
-		$dsn = 'mysql:host=' . $config('HOSTNAME') . ';dbname=' . $config['DATABASE'] . ';charset=utf8';
+		$dsn = 'mysql:host=' . $config['HOSTNAME'] . ';dbname=' . $config['DATABASE'] . ';charset=utf8';
 
 		$connection = new PDO( $dsn, $config['USER'], $config['PASSWORD'] );
 
@@ -64,4 +64,66 @@ function get_template_engine() {
 
 	return new League\Plates\Engine( $templates_path );
 
+}
+
+function current_route_is( $name ) {
+	$route = request()->getLoadedRoute();
+
+	if ( $route ) {
+		return $route->hasName( $name );
+	}
+
+	return false;
+}
+
+function validateRegistrationData($data) {
+	$errors = [];
+
+	$email = filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL);
+	$wachtwoord = trim( $_POST['wachtwoord'] );
+
+	if ( $email === false ) {
+		$errors['email'] = 'Geen geldige email address ingevuld';
+	}
+
+	if ( strlen( $wachtwoord ) < 6 ) {
+		$errors['wachtwoord'] = 'Geen geldige wachtwoord ingevuld (minimaal 6 tekens)';
+	}
+
+	$data = [
+		'email' => $email,
+		'wachtwoord' => $wachtwoord
+	];
+
+	return [
+		'data' => $data,
+		'errors' => $errors
+	];
+
+	return $result;
+
+}
+
+function userNotRegistered($email) {
+
+$connection = dbConnect();
+$sql        = "SELECT * FROM `gebruikers` WHERE `email` = :email";
+$statement  = $connection->prepare($sql);
+$statement->execute( [ 'email' => $email ] );
+
+return ($statement->rowCount() === 0);
+}
+
+function createUser($email, $wachtwoord) {
+
+	$connection = dbConnect();
+
+	$sql           = "INSERT INTO `gebruikers` (`email`, `wachtwoord`) VALUES (:email, :wachtwoord)";
+	$statement     = $connection->prepare($sql);
+	$safe_password = password_hash( $wachtwoord, PASSWORD_DEFAULT);
+	$params        = [
+	'email'       => $email,
+	'wachtwoord'  => $safe_password
+];
+	$statement->execute( $params );
 }

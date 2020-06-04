@@ -8,8 +8,9 @@ body {
   margin: 0;
 }
 
-header {
+nav {
   padding: 40px;
+  text-decoration: none;
   text-align: left;
   background: darkred;
   color: white;
