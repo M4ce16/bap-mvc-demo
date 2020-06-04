@@ -15,7 +15,6 @@
         <a href="winkelwagen.html"><img id="wagen" src="<?php echo site_url('/images/winkelwagen.png')?>" alt="winkelwagen"></a>
       </h1></a>
     </header> -->
-    <header>
     <nav>
       <?php if ($this->section( 'navigation' ) ): ?>
         <?php echo $this->section('navigation') ?>
@@ -23,7 +22,6 @@
         <?php echo $this->fetch( '_navigation' ) ?>
       <?php endif ?>
     </nav>
-  </header>
     <section>
       <?php echo $this->section('content')  ?>
     </section>
