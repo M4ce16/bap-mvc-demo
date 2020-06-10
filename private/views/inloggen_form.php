@@ -1,28 +1,25 @@
 <?php $this->layout('layout') ?>
 <div class="form_help">
 <div class="form">
-<h3>Inschrijven</h3>
+<h3>Inloggen</h3>
 
-<p>Schrijf u in om uw boodschappen te kunnen laten bezorgen</p>
-
-<form action="<?php echo url("register.handle")?>" method="POST">
+<form action="<?php echo url("inloggen.handle")?>" method="POST">
   <div class="form-group1">
     <label for="email">Email</label><br>
     <input type="email" name="email" value="<?php echo input('email')?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email...">
     <?php if ( isset( $errors['email'] ) ): ?>
     <?php echo $errors['email'] ?>
   <?php endif; ?>
-</div>
+  </div>
   <div class="form-group2">
     <label for="wachtwoord">Wachtwoord</label><br>
-    <input type="password" name="wachtwoord" id="wachtwoord" class="form-control" placeholder="wachtwoord...">
+    <input type="password" name="wachtwoord" id="wachtwoord" class="form-control" placeholder="Wachtwoord...">
     <?php if ( isset( $errors['wachtwoord'] ) ): ?>
     <?php echo $errors['wachtwoord'] ?>
   <?php endif; ?>
   </div>
-  <button type="submit" id="submit" class="btn btn-primary">Registreren</button>
+  <button type="submit" id="submit" class="btn btn-primary">inloggen</button>
 </form>
-</div>
 </div>
 <style>
 .form_help {

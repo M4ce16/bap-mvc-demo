@@ -6,15 +6,6 @@
     <title></title>
   </head>
   <body>
-    <!-- <header>
-      <a href="<?php echo url('home')?>"><h1 id="logo">LOGO
-        <a href="index.html" id="home">producten</a>
-        <a href="bestellen.html" id="home">recepten</a>
-        <a href="login.html" id="home">hulpservice</a>
-        <input id="zoeken" type="text" placeholder="Zoeken..">
-        <a href="winkelwagen.html"><img id="wagen" src="<?php echo site_url('/images/winkelwagen.png')?>" alt="winkelwagen"></a>
-      </h1></a>
-    </header> -->
     <nav>
       <?php if ($this->section( 'navigation' ) ): ?>
         <?php echo $this->section('navigation') ?>
@@ -31,5 +22,8 @@
       <div class="grid3"><img id="outline" src="<?php echo site_url('/images/wit-brood.jpg')?>" alt="wit-brood"></div>
       <div class="grid4"><img id="outline" src="<?php echo site_url('/images/fruit.jpg')?>" alt="fruit"></div>
     </div> -->
+    <footer>
+      <p>&copy; COVIDHELP<p>
+    </footer>
   </body>
 </html>
