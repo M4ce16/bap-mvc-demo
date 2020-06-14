@@ -15,8 +15,12 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::get( '/registreren', 'RegistrationController@registrationForm')->name('register.form');
 	SimpleRouter::POST( '/registreren/verwerken', 'RegistrationController@handleRegistrationForm')->name('register.handle');
 	SimpleRouter::get( '/registreren/bedankt', 'RegistrationController@registrationBedankt')->name('register.bedankt');
-	SimpleRouter::get( '/inloggen', 'InloggenController@inloggenForm')->name('inloggen.form');
-	// STOP: Tot hier al je eigen URL's zetten
+	SimpleRouter::get( '/login', 'LoginController@loginForm' )->name( 'login.form' );
+	SimpleRouter::post( '/login/verwerken', 'LoginController@handleLoginForm' )->name( 'login.handle' );
+	SimpleRouter::get( '/logout', 'LoginController@logout' )->name( 'logout' );
+	SimpleRouter::get( '/category/{id}', 'WebsiteController@home' )->name( 'home.category' );
+
+		// STOP: Tot hier al je eigen URL's zetten
 
 	SimpleRouter::get( '/not-found', function () {
 		http_response_code( 404 );

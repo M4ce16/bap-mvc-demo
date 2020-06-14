@@ -16,14 +16,8 @@
     <section>
       <?php echo $this->section('content')  ?>
     </section>
-    <!-- <div class="images">
-      <div class="grid1"><img id="outline" src="<?php echo site_url('/images/korn-brood.jpg')?>" alt="korn-brood"></div>
-      <div class="grid2"><img id="outline" src="<?php echo site_url('/images/bruin-brood.jpg')?>" alt="bruin-brood"></div>
-      <div class="grid3"><img id="outline" src="<?php echo site_url('/images/wit-brood.jpg')?>" alt="wit-brood"></div>
-      <div class="grid4"><img id="outline" src="<?php echo site_url('/images/fruit.jpg')?>" alt="fruit"></div>
-    </div> -->
-    <footer>
+    <!-- <footer>
       <p>&copy; COVIDHELP<p>
-    </footer>
+    </footer> -->
   </body>
 </html>

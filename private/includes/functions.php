@@ -127,3 +127,59 @@ function createUser($email, $wachtwoord) {
 ];
 	$statement->execute( $params );
 }
+
+//pagination
+/**
+ * Geeft het totaal aantal rijen terug
+ *
+ * @param $connection
+ *
+ * @return int
+ */
+function getTotalCountries( $connection ) {
+	$sql       = 'SELECT COUNT(*) as `total` FROM `country`'; //TODO: Hier de juiste query zetten om het totaal aantal countries te tellen
+	$statement = $connection->query( $sql );
+
+	return (int) $statement->fetchColumn();
+}
+
+/**
+ * Haalt alle landen op voor het opgegeven paginanummer
+ *
+ * @param \PDO $connection The database connection
+ * @param int $page Pagenumber
+ * @param int $pagesize Number of results per page
+ *
+ * @return array
+ */
+function getCountries( $connection, $page = 1, $pagesize = 5 ) {
+
+	// De parameter $page naar een getal omzetten met (int)
+	$page      = (int) $page;
+
+	// Beginnen met de SQL query om ALLES op te halen
+	$sql = 'SELECT * FROM `country`';
+
+	// Alle gegevens ophalen die nodig zijn om pagina nummers te berekenen
+	$total     = getTotalCountries( $connection );//TODO: Het totaal aantal landen ophalen (check de functie in dit bestand!)
+	$num_pages = (int) round( $total / $pagesize );//TODO: welke berekening moet hier komen? Gebruik de variabelen
+
+
+	// Als pagina nummer te groot is dan naar laatste pagina zetten
+	$offset = ( $page - 1) * $pagesize;//TODO: Hoe bereken je waar je moet beginnen (welke variabelen kun je hiervoor gebruiken?)
+
+	// Nu plakken we de juiste LIMIT en OFFSET achter de SQl die we al hadden
+	$sql    .= ' LIMIT ' . $pagesize . ' OFFSET ' . $offset;
+
+
+	$statement = $connection->query( $sql );
+
+	// Deze array met informatie geeft de functie terug
+	return [
+		'statement' => $statement,
+		'total'     => $total,
+		'pages'     => $num_pages,
+		'page'      => $page
+	];
+
+}

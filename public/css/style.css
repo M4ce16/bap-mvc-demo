@@ -7,12 +7,12 @@ body {
 body {
   margin: 0;
 }
+
 .topnav {
   background-color: darkred;
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   display: block;
@@ -23,69 +23,26 @@ body {
   font-size: 25px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
   background-color: red;
   color: white;
 }
 
-/* Add an active class to highlight the current page */
 .topnav a.active {
   background-color: black;
   color: white;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
 }
 
-/* nav {
-  padding: 40px;
-  text-decoration: none;
-  text-align: left;
-  background: darkred;
-  color: white;
-  font-size: 20px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-.nav {
-  text-align: center;
-}
-
-#home {
-  font-size: 30px;
-  margin-left: 100px;
-}
-
-#logo {
-  margin-left: 40px;
-}
-
-#wagen {
-  height: 40px;
-  width: 40px;
-  margin-left: 80px;
-}
-
-#zoeken {
-  margin-left: 600px;
-}
-
-#outline {
-  outline-style: solid;
-} */
 footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
+
    width: 100%;
    background-color: lightgray;
    color: black;
    text-align: center;
+   padding-top: 1px;
+   padding-bottom: 1px;
 }

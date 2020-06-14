@@ -16,9 +16,39 @@
 </div> -->
 <div class="topnav" id="myTopnav">
   <a href="<?php echo url( 'home' ) ?>"<?php if (current_route_is('home')): ?> class="active"<?php endif ?>>Home</a>
-  <a href="<?php echo url( '' ) ?>"<?php if (current_route_is('')): ?> class="active"<?php endif ?>>Winkel</a>
   <a href="<?php echo url( 'register.form' ) ?>"<?php if (current_route_is('register.form')): ?> class="active"<?php endif ?>>Registreren</a>
-  <a href="<?php echo url( 'inloggen.form' ) ?>"<?php if (current_route_is('inloggen.form')): ?> class="active"<?php endif ?>>inloggen</a>
+  <a href="<?php echo url( 'login.form' ) ?>"<?php if (current_route_is('login.form')): ?> class="active"<?php endif ?>>inloggen</a>
   <a href="<?php echo url( '' ) ?>"<?php if (current_route_is('')): ?> class="active"<?php endif ?>>Winkelwagen</a>
   </a>
 </div>
+<style>
+.topnav {
+  background-color: darkred;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 40px 50px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color: red;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: black;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+</style>

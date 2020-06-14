@@ -4,9 +4,16 @@ namespace Website\Controllers;
 
 class WebsiteController {
 
-  public function home() {
-
-    $template_engine = get_template_engine();
-    echo $template_engine->render('homepage');
-  }
+public function home($id = null) {
+  $template_engine = get_template_engine();
+  echo $template_engine->render('homepage', ['products' => getProducts($id)]);
 }
+
+public function shoppingcart() {
+
+  $template_engine = get_template_engine();
+  echo $template_engine->render('shoppingcart');
+}
+
+}
+// $id = null): string
