@@ -19,7 +19,7 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::post( '/login/verwerken', 'LoginController@handleLoginForm' )->name( 'login.handle' );
 	SimpleRouter::get( '/logout', 'LoginController@logout' )->name( 'logout' );
 	SimpleRouter::get( '/category/{id}', 'WebsiteController@home' )->name( 'home.category' );
-
+	SimpleRouter::get( '/uitleg', 'uitlegController@uitleg' )->name( 'uitleg' );
 		// STOP: Tot hier al je eigen URL's zetten
 
 	SimpleRouter::get( '/not-found', function () {

@@ -18,7 +18,7 @@
   <a href="<?php echo url( 'home' ) ?>"<?php if (current_route_is('home')): ?> class="active"<?php endif ?>>Home</a>
   <a href="<?php echo url( 'register.form' ) ?>"<?php if (current_route_is('register.form')): ?> class="active"<?php endif ?>>Registreren</a>
   <a href="<?php echo url( 'login.form' ) ?>"<?php if (current_route_is('login.form')): ?> class="active"<?php endif ?>>inloggen</a>
-  <a href="<?php echo url( '' ) ?>"<?php if (current_route_is('')): ?> class="active"<?php endif ?>>Winkelwagen</a>
+  <a href="<?php echo url( 'uitleg' ) ?>"<?php if (current_route_is('uitleg')): ?> class="active"<?php endif ?>>uitleg</a>
   </a>
 </div>
 <style>

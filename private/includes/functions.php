@@ -80,19 +80,19 @@ function validateRegistrationData($data) {
 	$errors = [];
 
 	$email = filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL);
-	$wachtwoord = trim( $_POST['wachtwoord'] );
+	$password = trim( $_POST['password'] );
 
 	if ( $email === false ) {
 		$errors['email'] = 'Geen geldige email address ingevuld';
 	}
 
-	if ( strlen( $wachtwoord ) < 6 ) {
-		$errors['wachtwoord'] = 'Geen geldige wachtwoord ingevuld (minimaal 6 tekens)';
+	if ( strlen( $password ) < 6 ) {
+		$errors['password'] = 'Geen geldige password ingevuld (minimaal 6 tekens)';
 	}
 
 	$data = [
 		'email' => $email,
-		'wachtwoord' => $wachtwoord
+		'password' => $password
 	];
 
 	return [
@@ -107,23 +107,23 @@ function validateRegistrationData($data) {
 function userNotRegistered($email) {
 
 $connection = dbConnect();
-$sql        = "SELECT * FROM `gebruikers` WHERE `email` = :email";
+$sql        = "SELECT * FROM `accounts` WHERE `email` = :email";
 $statement  = $connection->prepare($sql);
 $statement->execute( [ 'email' => $email ] );
 
 return ($statement->rowCount() === 0);
 }
 
-function createUser($email, $wachtwoord) {
+function createUser($email, $password) {
 
 	$connection = dbConnect();
 
-	$sql           = "INSERT INTO `gebruikers` (`email`, `wachtwoord`) VALUES (:email, :wachtwoord)";
+	$sql           = "INSERT INTO `accounts` (`email`, `password`) VALUES (:email, :password)";
 	$statement     = $connection->prepare($sql);
-	$safe_password = password_hash( $wachtwoord, PASSWORD_DEFAULT);
+	$safe_password = password_hash( $password, PASSWORD_DEFAULT);
 	$params        = [
 	'email'       => $email,
-	'wachtwoord'  => $safe_password
+	'password'  => $safe_password
 ];
 	$statement->execute( $params );
 }

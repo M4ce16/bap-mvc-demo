@@ -15,5 +15,11 @@ public function shoppingcart() {
   echo $template_engine->render('shoppingcart');
 }
 
+public function uitleg() {
+
+  $template_engine = get_template_engine();
+  echo $template_engine->render('uitleg');
+}
+
 }
 // $id = null): string

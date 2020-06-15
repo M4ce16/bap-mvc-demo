@@ -19,7 +19,7 @@ class RegistrationController {
 
       if ( userNotRegistered($result['data']['email'])) {
 
-        createUser($result['data']['email'], $result['data']['wachtwoord']);
+        createUser($result['data']['email'], $result['data']['password']);
 
         $bedanktUrl = url('register.bedankt');
         redirect($bedanktUrl);

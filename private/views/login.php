@@ -18,10 +18,10 @@
   <?php endif; ?> -->
   </div>
   <div class="form-group2">
-    <label for="wachtwoord">Wachtwoord</label><br>
-    <input type="password" name="password" id="wachtwoord" class="form-control" placeholder="Wachtwoord..." required>
-    <!-- <?php if ( isset( $errors['wachtwoord'] ) ): ?>
-    <?php echo $errors['wachtwoord'] ?>
+    <label for="password">Wachtwoord</label><br>
+    <input type="password" name="password" id="password" class="form-control" placeholder="password..." required>
+    <!-- <?php if ( isset( $errors['password'] ) ): ?>
+    <?php echo $errors['password'] ?>
   <?php endif; ?> -->
   </div>
   <button type="submit" id="submit" class="btn btn-primary">inloggen</button>
@@ -49,7 +49,7 @@
   height: 40px;
 }
 
-#wachtwoord {
+#password {
   font-size: 20px;
   width: 200px;
   height: 40px;
