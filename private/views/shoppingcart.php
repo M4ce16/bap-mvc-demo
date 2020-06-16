@@ -1,4 +1,4 @@
-<?php $this->layout('website');?>
+<?php $this->layout('layout');?>
 <h1>Winkelwagen</h1>
 <?php
 $status="";
@@ -15,7 +15,7 @@ $price = $row['price'];
 $stock = $row['stock'];
 $category = $row['category_id'];
 $product_foto = $row['product_foto'];
- 
+
 $cartArray = array(
  $code=>array(
  'name'=>$name,
@@ -24,7 +24,7 @@ $cartArray = array(
  'stock'=>1,
  'product_foto'=>$product_foto)
 );
- 
+
 if(empty($_SESSION["shopping_cart"])) {
     $_SESSION["shopping_cart"] = $cartArray;
     $status = "<div class='box'>Product is added to your cart!</div>";
@@ -32,7 +32,7 @@ if(empty($_SESSION["shopping_cart"])) {
     $array_keys = array_keys($_SESSION["shopping_cart"]);
     if(in_array($code,$array_keys)) {
  $status = "<div class='box' style='color:red;'>
- Product is already added to your cart!</div>"; 
+ Product is already added to your cart!</div>";
     } else {
     $_SESSION["shopping_cart"] = array_merge(
     $_SESSION["shopping_cart"],
@@ -40,7 +40,7 @@ if(empty($_SESSION["shopping_cart"])) {
     );
     $status = "<div class='box'>Product is added to your cart!</div>";
  }
- 
+
  }
 }
 ?>

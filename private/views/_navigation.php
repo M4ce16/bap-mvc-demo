@@ -4,6 +4,7 @@
  <?php if(!isLoggedIn()): ?><a href="<?php echo url( 'login.form' ) ?>"<?php if (current_route_is('login.form')): ?> class="active"<?php endif ?>>inloggen</a><?php endif ?>
  <?php if(isLoggedIn()): ?><a href="<?php echo url( 'logout' ) ?>"<?php if (current_route_is('logout')): ?> class="active"<?php endif ?>>uitloggen</a><?php endif ?>
   <a href="<?php echo url( 'uitleg' ) ?>"<?php if (current_route_is('uitleg')): ?> class="active"<?php endif ?>>uitleg</a>
+    <a href="<?php echo url( 'shoppingcart' ) ?>"<?php if (current_route_is('shoppingcart')): ?> class="active"<?php endif ?>>winkelwagen</a>
   </a>
 </div>
 <style>
