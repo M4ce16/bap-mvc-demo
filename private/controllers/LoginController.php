@@ -36,8 +36,8 @@ class LoginController {
 
 	public function logout() {
 
-		session_destroy();
-		header("Location: ".url('login.form'));
+		logoutUser();
+		redirect(url('home'));
 	}
 
 }

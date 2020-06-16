@@ -120,7 +120,7 @@ function createUser($email, $password) {
 
 	$sql           = "INSERT INTO `accounts` (`email`, `password`) VALUES (:email, :password)";
 	$statement     = $connection->prepare($sql);
-	$safe_password = password_hash( $password, PASSWORD_DEFAULT);
+	$safe_password = sha1( $password );
 	$params        = [
 	'email'       => $email,
 	'password'  => $safe_password
@@ -182,4 +182,10 @@ function getCountries( $connection, $page = 1, $pagesize = 5 ) {
 		'page'      => $page
 	];
 
+}
+function isLoggedIn(){
+    return !empty($_SESSION['user_id']);
+}
+function logoutUser(){
+    unset($_SESSION['user_id']);
 }

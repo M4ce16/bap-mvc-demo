@@ -13,6 +13,7 @@ require_once get_config('PRIVATE') . '/models/model.php';
 // Alle routes (URL's) in een apart bestand
 require_once get_config('PRIVATE') . '/routes.php';
 
+session_start();
 /**
  * Hier wordt de opgevraagde URL gematched aan alle URL's die zijn ingesteld
  * Als de URL bestaat wordt de juiste code aangeroepen die er bij hoort (de controller)
