@@ -6,7 +6,7 @@
 $config = [
 	'DB'       => [
 		'HOSTNAME' => 'localhost',
-		'DATABASE' => '',
+		'DATABASE' => 'c4989covid19',
 		'USER'     => 'root',
 		'PASSWORD' => ''
 	],

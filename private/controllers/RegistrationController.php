@@ -19,7 +19,14 @@ class RegistrationController {
 
       if ( userNotRegistered($result['data']['email'])) {
 
-        createUser($result['data']['email'], $result['data']['password']);
+
+        //verificatie code
+        $code = md5( uniqid( rand(), true));
+
+        createUser($result['data']['email'], $result['data']['password'], $code);
+
+        //MAIL VERSTUREN
+        sendConfirmationEmail($result['data']['email'], $code);
 
         $bedanktUrl = url('register.bedankt');
         redirect($bedanktUrl);
@@ -37,5 +44,19 @@ class RegistrationController {
   public function registrationBedankt(){
     $template_engine = get_template_engine();
     echo $template_engine->render("register_bedankt");
+  }
+
+
+
+  public function confirmRegistration($code){
+    $user = getUserByCode($code);
+    if( $user === false) {
+      echo "Onbekende gebruiker of al bevestigd";
+      exit;
+    }
+    confirmAccount($code);
+    //bevestigings pagina tonen
+    $template_engine = get_template_engine();
+    echo $template_engine->render('register_confirmed');
   }
 }

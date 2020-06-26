@@ -15,12 +15,14 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::get( '/registreren', 'RegistrationController@registrationForm')->name('register.form');
 	SimpleRouter::POST( '/registreren/verwerken', 'RegistrationController@handleRegistrationForm')->name('register.handle');
 	SimpleRouter::get( '/registreren/bedankt', 'RegistrationController@registrationBedankt')->name('register.bedankt');
+	SimpleRouter::get( '/registreren/bevestigen/{code}', 'RegistrationController@confirmRegistration')->name('register.name');
 	SimpleRouter::get( '/login', 'LoginController@loginForm' )->name( 'login.form' );
 	SimpleRouter::post( '/login/verwerken', 'LoginController@handleLoginForm' )->name( 'login.handle' );
 	SimpleRouter::get( '/logout', 'LoginController@logout' )->name( 'logout' );
 	SimpleRouter::get( '/category/{id}', 'WebsiteController@home' )->name( 'home.category' );
 	SimpleRouter::get( '/uitleg', 'uitlegController@uitleg' )->name( 'uitleg' );
 	SimpleRouter::get( '/shoppingcart', 'ShoppingcartController@shoppingcart' )->name( 'shoppingcart' );
+	SimpleRouter::get( '/stuur-test-email', 'EmailController@sendTestEmail' )->name( 'email.test' );
 
 		// STOP: Tot hier al je eigen URL's zetten
 

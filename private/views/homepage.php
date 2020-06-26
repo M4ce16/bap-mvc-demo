@@ -15,7 +15,11 @@
       </div>
     </div>
       <?php endforeach; ?>
+      <?php for ( $i = 1; $i <= $result['pages']; $i ++ ): ?>
+          <a href="index.php?page=<?php 1 ?>" class="pagination__number"><?php 10 ?></a>
+    <?php endfor; ?>
   </div>
+
 <style>
   .products {
     margin: 0 auto;
